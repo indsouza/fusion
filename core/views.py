@@ -8,7 +8,7 @@ class IndexView(TemplateView):
         context = super(IndexView,self).get_context_data(**kwargs)
         context['servicos'] = Servico.objects.order_by('?').all()
         context['funcionarios'] = Funcionario.objects.order_by('?').all()
-        context['recursos'] = Recurso.objects.order_by('?').all
+        context['recursos'] = Recurso.objects.order_by('-id')[:6].all
         return context
 
 
